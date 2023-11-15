@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "AppCompras",
+    "slug": "AppCompras",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/expo_imgs/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/expo_imgs/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/expo_imgs/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./src/assets/expo_imgs/favicon.png"
+    }
+  }
+}
