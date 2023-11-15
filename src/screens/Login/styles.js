@@ -14,15 +14,15 @@ export default styles = StyleSheet.create({
     viewCampos: {
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: COLORS.SpaceCadet,
+        backgroundColor: COLORS.DelftBlue,
         padding: 10,
         borderRadius: 10,
-        opacity: .8,
+        opacity: .7,
         borderWidth: 3,
         borderColor: COLORS.OldRose,
     },
     text: {
-        fontSize: SIZES.large,
+        fontSize: SIZES.text.large,
         color: COLORS.AmaranthPink,
         fontWeight: "bold",
         marginTop: 5,
@@ -34,7 +34,7 @@ export default styles = StyleSheet.create({
         color: COLORS.AmaranthPink,
         borderRadius: 10,
         marginTop: 10,
-        fontSize: SIZES.medium,
+        fontSize: SIZES.text.medium,
         paddingLeft: 7
     },
     icon: {

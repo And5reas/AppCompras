@@ -7,11 +7,10 @@ import {
     StatusBar,
 } from 'react-native';
 import { SimpleButton, SimpleInput } from '../../components'; 
-import styles from './styles';
 import { images, icons } from '../../constants';
 import { loginAPI } from '../../hooks';
 import { AndroidToasts } from '../../helpers';
-import ApiPythonReactNative from '../../../test/ApiPythonReactNative';
+import styles from './styles';
 
 export default function LoginScreen(props){
     const [user, setUser] = useState("");

@@ -1,10 +1,14 @@
 import { View, Text } from "react-native";
+import { TabBarBottom, PlusButton, Header } from "../../components";
 import styles from "./styles";
 
 export default function HomeScreen() {
     return(
         <View style={styles.container}>
-            <Text>Olaaaa</Text>
+            <Text>Batata</Text>
+            <Header />
+            <PlusButton />
+            <TabBarBottom />
         </View>
     );
 }

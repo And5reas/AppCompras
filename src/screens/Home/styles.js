@@ -6,6 +6,6 @@ export default styles = StyleSheet.create({
         flexGrow: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: COLORS.YinMnBlue,
+        backgroundColor: COLORS.SpaceCader3,
     }
 });

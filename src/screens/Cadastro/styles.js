@@ -9,7 +9,7 @@ export default styles = StyleSheet.create({
         backgroundColor: COLORS.Lavander1,
     },
     viewCampos: {
-        backgroundColor: COLORS.SpaceCadet,
+        backgroundColor: COLORS.SpaceCadet1,
         padding: 10,
         borderRadius: 10,
         opacity: .8,

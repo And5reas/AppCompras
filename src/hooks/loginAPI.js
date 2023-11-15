@@ -24,7 +24,6 @@ class loginAPI {
                 this.msg = "Bem vindo"
             else
                 this.msg = "Login incorreto"
-            console.log(response['Status'])
         } catch (error) {
             console.log(error);
             this.msg = "Ops ocorreu um erro inesperado :("
