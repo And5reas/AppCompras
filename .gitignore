@@ -1,0 +1,4 @@
+node_modules
+\src\services\python\env
+\src\services\python\__pycache__
+.expo
