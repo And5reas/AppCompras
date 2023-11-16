@@ -18,5 +18,9 @@ export default styles = StyleSheet.create({
         },
         top: SIZES.windowHeight - SIZES.tabBarHeight*2 - 10,
         right: 10
+    },
+    plus: {
+        width: SIZES.tabBottomIcon - 15,
+        height: SIZES.tabBottomIcon - 15,
     }
 });

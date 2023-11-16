@@ -7,7 +7,7 @@ export default styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-evenly",
         alignItems: "center",
-        backgroundColor: COLORS.MarianBlue,
+        backgroundColor: COLORS.PaleDogwood,
         borderTopWidth: 3,
         flexGrow: .02,
         borderTopLeftRadius: 10,

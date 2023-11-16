@@ -4,7 +4,7 @@ import { COLORS, SIZES } from "../../constants";
 export default styles = StyleSheet.create({
     container: {
         position: "absolute",
-        backgroundColor: COLORS.MarianBlue,
+        backgroundColor: COLORS.DelftBlue,
         width: SIZES.windowWidth,
         top: 0,
         height: SIZES.tabBarHeight,
@@ -21,6 +21,7 @@ export default styles = StyleSheet.create({
         }
     },
     text: {
-        fontSize: SIZES.text.xLarge
+        fontSize: SIZES.text.xxLarge,
+        color: COLORS.VistaBlue,
     },
 });

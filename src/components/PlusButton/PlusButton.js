@@ -1,12 +1,15 @@
-import { TouchableNativeFeedback, View } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { TouchableNativeFeedback, View, Image } from "react-native";
+import { icons } from "../../constants";
 import styles from "./styles";
 
-export default function PlusButton() {
+export default function PlusButton(props) {
     return(
-        <TouchableNativeFeedback>
+        <TouchableNativeFeedback onPress={props.onPress}>
             <View style={styles.container}>
-                <AntDesign name="plus" size={24} color="black" />
+                <Image
+                    source={icons.plus}
+                    style={styles.plus}
+                />
             </View>
         </TouchableNativeFeedback>
     );
