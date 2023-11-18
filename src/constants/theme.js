@@ -40,6 +40,7 @@ const SIZES = {
     windowWidth: Dimensions.get("window").width,
     tabBottomIcon: 40,
     tabBarHeight: 60,
+    cameraSize: 300,
 };
 
 export { COLORS, SIZES };

@@ -69,14 +69,14 @@ export default function LoginScreen(props){
                 <SimpleButton 
                     title="Entrar" 
                     action={async() => logar()}
-                    styles={{marginTop: 25}} 
+                    style={{marginTop: 25}} 
                     isLoading={isLoading}
                 />
 
                 <SimpleButton 
                     title="Cadastro" 
                     action={() => props.navigation.navigate("Cadastro")} 
-                    styles={{marginTop: 0}} 
+                    style={{marginTop: 0}} 
                 />
 
             </View>

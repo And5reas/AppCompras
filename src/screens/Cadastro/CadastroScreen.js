@@ -77,7 +77,7 @@ export default function CadastroScreen(props){
 
                 <SimpleButton
                     title="Cadastrar"
-                    styles={{marginTop: 25}}
+                    style={{marginTop: 25}}
                     action={async() => register()}
                     isLoading={isLoading}
                 />

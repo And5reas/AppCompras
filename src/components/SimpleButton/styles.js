@@ -9,5 +9,5 @@ export default styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 10,
         borderRadius: 5,
-    }
+    },
 });
