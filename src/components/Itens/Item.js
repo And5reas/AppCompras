@@ -4,44 +4,43 @@ import { icons } from "../../constants";
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import styles from "./styles";
 
-export default function Item({ onPress, renderRightActions }){
+export default function Item({ renderRightActions, itemProperties }){
     
-    const [counter, setCounter] = useState(1);
+    const [qtd, setQtd] = useState(1);
 
     const onClick = (sing) => {
+        console.log(itemProperties)
         sing == "+"
-        ? setCounter(counter + 1) 
-        : (counter > 0)? setCounter(counter - 1)
-        : setCounter(0);
+        ? setQtd(qtd + 1) 
+        : (qtd > 1)? setQtd(qtd - 1)
+        : setQtd(1);
     }
 
     return(
         <Swipeable renderRightActions={renderRightActions} >
-            <TouchableWithoutFeedback onPress={ onPress }>
-                <View style={styles.containerFlatList}>
+            <View style={styles.containerFlatList}>
+                <Image 
+                    source={{
+                        uri: 'https://reactnative.dev/img/tiny_logo.png',
+                        }}
+                    style={styles.image}
+                />
+                <TouchableOpacity onPress={() => onClick("+")}>
                     <Image 
-                        source={{
-                            uri: 'https://reactnative.dev/img/tiny_logo.png',
-                            }}
-                        style={styles.image}
+                        source={icons.plusSing}
+                        style={styles.iconSize}
                     />
-                    <TouchableOpacity onPress={() => onClick("+")}>
-                        <Image 
-                            source={icons.plusSing}
-                            style={styles.iconSize}
-                        />
-                    </TouchableOpacity>
-                    <Text style={styles.text}>{counter}</Text>
-                    <TouchableOpacity onPress={() => onClick("-")}>
-                        <Image 
-                            source={icons.minus}
-                            style={styles.iconSize}
-                        />
-                    </TouchableOpacity>
-                    <Text style={styles.textCurrency}>R$</Text>
-                    <Text style={styles.text}>12</Text>
-                </View>
-            </TouchableWithoutFeedback>
+                </TouchableOpacity>
+                <Text style={styles.text}>{qtd}</Text>
+                <TouchableOpacity onPress={() => onClick("-")}>
+                    <Image 
+                        source={icons.minus}
+                        style={styles.iconSize}
+                    />
+                </TouchableOpacity>
+                <Text style={styles.textCurrency}>R$</Text>
+                <Text style={styles.text}>{itemProperties.valorItem*qtd}</Text>
+            </View>
         </Swipeable>
     );
 }
