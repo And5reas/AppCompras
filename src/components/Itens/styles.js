@@ -17,6 +17,15 @@ export default styles = StyleSheet.create({
         padding: 8,
         margin: 8,
     },
+    ViewRow: {
+        flexDirection: "row",
+    },
+    ViewNormal: {
+        position: "absolute",
+        justifyContent: "center",
+        alignItems: "center",
+        right: 0,
+    },
     image: {
         width: 80,
         height: 80,
@@ -24,17 +33,19 @@ export default styles = StyleSheet.create({
         borderRadius: 5,
     },
     iconSize: {
-        width: SIZES.tabBottomIcon,
-        height: SIZES.tabBottomIcon,
+        width: SIZES.tabBottomIcon - 15,
+        height: SIZES.tabBottomIcon - 15,
         marginLeft: 10,
         marginRight: 10,
     },
     text: {
-        fontSize: 25,
+        fontSize: 20,
+        marginBottom: 10,
     },
-    textCurrency: {
-        fontSize: 25,
-        marginLeft: 20
+    textTitle: {
+        fontSize: 20,
+        marginLeft: 10,
+        marginRight: 20,
     },
     backgroundItem: {
         width: 100,

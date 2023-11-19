@@ -1,18 +1,20 @@
 import { useState, useEffect, useRef } from "react";
 import { View, Modal } from "react-native"
 import { SimpleButton } from "../../components";
-import { Camera, CameraType } from "expo-camera";
+import { Camera } from "expo-camera";
 import { icons } from "../../constants";
+import { sendImageAPI } from "../../hooks";
+//import { compressImage } from "../../helpers";
 import * as MediaLabrary from "expo-media-library";
 import styles from "./styles";
 
 export default function ModalCamera({ exibirModal, setStateModal }) {
 
     const [hasCameraPermission, setHasCameraPermission] = useState(null);
-    const [image, setImage] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
     const [flash, setFlash] = useState(Camera.Constants.FlashMode.off);
     const cameraRef = useRef(null);
+    const sendImage = new sendImageAPI();
     
     useEffect(() => {
         (async() => {
@@ -26,8 +28,12 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
         if(cameraRef) {
             try {
                 const picture = await cameraRef.current.takePictureAsync();
-                console.log(picture)
-                setImage(picture.uri);
+                //const base64Compressed = compressImage(picture.uri)
+                //console.log(base64Compressed);
+                
+                // console.log(picture.base64)
+                // sendImage.sendImageAPI(picture.base64)
+                
             } catch (e) {
                 console.log(e);
             }

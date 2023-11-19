@@ -1,17 +1,7 @@
 {
   "expo": {
-    "name": "AppCompras",
-    "plugins": [
-      [
-        "react-native-vision-camera",
-        {
-          "cameraPermissionText": "$(PRODUCT_NAME) needs access to your Camera.",
-          "enableMicrophonePermission": true,
-          "microphonePermissionText": "$(PRODUCT_NAME) needs access to your Microphone."
-        }
-      ]
-    ],
-    "slug": "AppCompras",
+    "name": "AppCompras2",
+    "slug": "AppCompras2",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/expo_imgs/icon.png",
@@ -25,30 +15,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "infoPlist": {
-        "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera.",
-        "NSMicrophoneUsageDescription": "$(PRODUCT_NAME) needs access to your Microphone."
-      }
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/expo_imgs/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "permissions": [
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO"
-      ],
-      "package": "com.and5reas.appcompras"
+      }
     },
     "web": {
       "favicon": "./src/assets/expo_imgs/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "2bc489c3-4b5a-4b4a-9c8c-64b17519f67e"
-      }
     }
   }
 }

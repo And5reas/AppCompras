@@ -7,11 +7,10 @@ import styles from "./styles";
 export default function Itens() {
 
     const [listItens, setListItens] = useState([
-        {id: 1, valorItem: 3.78, nameItem: "Leite"},
-        {id: 2, valorItem: 10.49, nameItem: "Refri"},
-        {id: 3, valorItem: 3.39, nameItem: "Refrigereco"},
-        {id: 4, valorItem: 12.78, nameItem: "Ovo"},
-    ])
+        {id: 1, valorItem: 3.78, nameItem: "Leite", image: require("../../../test/images/Leite.jpg")},  
+        {id: 2, valorItem: 10.49, nameItem: "Refri", image: require("../../../test/images/Refri.jpg")},  
+        {id: 3, valorItem: 18.99, nameItem: "Ovinhos", image: require("../../../test/images/Ovinhos.jpg")},  
+    ]);
 
     const handleDelete = item => {
         const newItem = listItens.filter(i => i.id !== item.id);

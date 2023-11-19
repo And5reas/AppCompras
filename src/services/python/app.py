@@ -2,6 +2,8 @@ from flask import Flask, request
 from flask_ngrok import run_with_ngrok
 from connDB import ConnDB
 
+import base64
+
 app = Flask(__name__)
 dataBase = ConnDB()
 
@@ -51,6 +53,15 @@ def cadastrar():
     return {
         "Info": info,
         "Status": status,
+    }
+
+@app.route("/getImage", methods=["POST",])
+def getImage():
+    imageBase64 = request.args.get('imageUri')
+    img = base64.decode(imageBase64)
+    print(img)
+    return {
+        "image": img
     }
     
 
