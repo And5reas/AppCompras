@@ -4,7 +4,7 @@ import { SimpleButton } from "../../components";
 import { Camera } from "expo-camera";
 import { icons } from "../../constants";
 import { sendImageAPI } from "../../hooks";
-//import { compressImage } from "../../helpers";
+import { manipulateAsync } from "expo-image-manipulator";
 import * as MediaLabrary from "expo-media-library";
 import styles from "./styles";
 
@@ -19,6 +19,8 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
     useEffect(() => {
         (async() => {
             MediaLabrary.requestPermissionsAsync();
+            // MediaLabrary.createAlbumAsync("AppCompras");
+            // console.log( await MediaLabrary.getAlbumAsync("AppCompras"))
             const cameraStatus = await Camera.requestCameraPermissionsAsync();
             setHasCameraPermission(cameraStatus.status === 'granted');
         })();
@@ -28,12 +30,9 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
         if(cameraRef) {
             try {
                 const picture = await cameraRef.current.takePictureAsync();
-                //const base64Compressed = compressImage(picture.uri)
-                //console.log(base64Compressed);
-                
-                // console.log(picture.base64)
-                // sendImage.sendImageAPI(picture.base64)
-                
+                const pictureResized = await manipulateAsync(picture.uri, [{resize: { width: 1020, height: 920} }])
+                const asset = await MediaLabrary.createAssetAsync(pictureResized.uri)
+                console.log(asset.filename)
             } catch (e) {
                 console.log(e);
             }

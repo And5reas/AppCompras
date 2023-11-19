@@ -55,7 +55,7 @@ def cadastrar():
         "Status": status,
     }
 
-@app.route("/getImage", methods=["POST",])
+@app.route("/getImage")
 def getImage():
     imageBase64 = request.args.get('imageUri')
     img = base64.decode(imageBase64)
