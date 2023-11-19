@@ -15,7 +15,7 @@ export default styles = StyleSheet.create({
         borderColor: COLORS.Lavander1,
         alignItems: "center",
         padding: 8,
-        margin: 8
+        margin: 8,
     },
     image: {
         width: 80,
@@ -35,6 +35,21 @@ export default styles = StyleSheet.create({
     textCurrency: {
         fontSize: 25,
         marginLeft: 20
+    },
+    backgroundItem: {
+        width: 100,
+        backgroundColor: "#F00",
+        marginTop: 10,
+        paddingLeft: 30,
+        borderRadius: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        height: 100,
+    },
+    iconRemoving: {
+        width: 60,
+        height: 70,
+        marginRight: 25
     }
 });
 

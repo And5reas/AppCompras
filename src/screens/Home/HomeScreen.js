@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View } from "react-native";
+import { View, StatusBar } from "react-native";
 import { 
     TabBarBottom, 
     PlusButton, 
@@ -14,6 +14,7 @@ export default function HomeScreen() {
 
     return(
         <View style={styles.container}>
+            <StatusBar barStyle="light-content" />
             <Header />
             <Itens />
             <ModalCamera exibirModal={modalVisible} setStateModal={setModalVisible} />
