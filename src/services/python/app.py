@@ -10,18 +10,6 @@ dataBase = ConnDB()
 app.secret_key = '2XwiT9cZrEzVyavIO3q2TBGuISx_3fegqbsuH7SgEzZscCrZG'
 run_with_ngrok(app)
 
-# Api Route
-@app.route("/teste")
-def teste():
-
-    receber = request.args.get('batata')
-
-    return {
-        "teste": "deu bom",
-        "texto": ";)",
-        "batata": receber,
-        }
-
 @app.route("/login")
 def login():
     status = False
@@ -55,13 +43,12 @@ def cadastrar():
         "Status": status,
     }
 
-@app.route("/getImage")
+@app.route("/getImage", methods=['POST'])
 def getImage():
-    imageBase64 = request.args.get('imageUri')
-    img = base64.decode(imageBase64)
-    print(img)
+    file = request.files['photo']
+    file.save('img.png')
     return {
-        "image": img
+        "image": "oii"
     }
     
 

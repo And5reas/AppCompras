@@ -1,11 +1,16 @@
+// React Imports
 import { useState, useEffect, useRef } from "react";
-import { View, Modal } from "react-native"
-import { SimpleButton } from "../../components";
+import { View, Modal, ActivityIndicator } from "react-native"
+
+// Expo Imports
 import { Camera } from "expo-camera";
-import { icons } from "../../constants";
-import { sendImageAPI } from "../../hooks";
 import { manipulateAsync } from "expo-image-manipulator";
 import * as MediaLabrary from "expo-media-library";
+
+// Project Imports
+import { SimpleButton } from "../../components";
+import { icons, COLORS } from "../../constants";
+import { sendImageAPI } from "../../hooks";
 import styles from "./styles";
 
 export default function ModalCamera({ exibirModal, setStateModal }) {
@@ -13,14 +18,13 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
     const [hasCameraPermission, setHasCameraPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
     const [flash, setFlash] = useState(Camera.Constants.FlashMode.off);
+    const [isLoading, setIsLoading] = useState(false);
     const cameraRef = useRef(null);
     const sendImage = new sendImageAPI();
     
     useEffect(() => {
         (async() => {
             MediaLabrary.requestPermissionsAsync();
-            // MediaLabrary.createAlbumAsync("AppCompras");
-            // console.log( await MediaLabrary.getAlbumAsync("AppCompras"))
             const cameraStatus = await Camera.requestCameraPermissionsAsync();
             setHasCameraPermission(cameraStatus.status === 'granted');
         })();
@@ -30,9 +34,10 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
         if(cameraRef) {
             try {
                 const picture = await cameraRef.current.takePictureAsync();
+                setIsLoading(true);
                 const pictureResized = await manipulateAsync(picture.uri, [{resize: { width: 1020, height: 920} }])
-                const asset = await MediaLabrary.createAssetAsync(pictureResized.uri)
-                console.log(asset.filename)
+                console.log(await sendImage.sendImageAPI(pictureResized)); 
+                setIsLoading(false);
             } catch (e) {
                 console.log(e);
             }
@@ -47,14 +52,19 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
         >
             <View style={styles.modal}>
                 <View style={styles.container}>
-                    <Camera
-                        style={styles.camera}
-                        type={type}
-                        flashMode={flash}
-                        ref={cameraRef}
-                    >
-                        <View style={styles.cameraView} />
-                    </Camera>
+                    {isLoading
+                    ? ( <View style={styles.cameraView} >
+                            <ActivityIndicator size="small" color={COLORS.Eggplant} />
+                        </View> )
+                    : ( <Camera
+                            style={styles.camera}
+                            type={type}
+                            flashMode={flash}
+                            ref={cameraRef}
+                        >
+                            <View style={styles.cameraView} />
+                        </Camera> )
+                    }
 
                     <SimpleButton 
                         style={styles.buttonCamera} 

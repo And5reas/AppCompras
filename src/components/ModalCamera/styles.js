@@ -28,7 +28,9 @@ export default styles = StyleSheet.create({
         width: SIZES.cameraSize + 10, 
         height: SIZES.cameraSize + 10,
         borderWidth: 5,
-        borderRadius: 10
+        borderRadius: 10,
+        justifyContent: "center",
+        alignItems: "center",
     },
     buttonCamera: {
         marginTop: 15, 

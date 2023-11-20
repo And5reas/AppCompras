@@ -1,37 +1,35 @@
 import config from '../config/config.json'
 
-
 class sendImageAPI {
 
     constructor(){
-        this.isLoading = null;
-        this.status = null;
         this.msg = "";
     }
 
-    sendImageAPI = async( image ) => {
+    sendImageAPI = ( img ) => {
+
+        let localUri = img.uri;
+        let fileName = localUri.split('/').pop();
+        let match = /\.(\w+)$/.exec(fileName);
+        let type = match ? `image/${match[1]}` : `image`;
+        const formData = new FormData()
+
+        formData.append('photo', { uri: localUri, name: fileName, type });
+
         try {
-            const response = await fetch(`${config.ApiPython}/getImage?imageUri=${image}`, {
+            fetch(`${config.ApiPython}/getImage`, {
                 method: 'POST',
+                body: formData,
                 headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'multipart/form-data',
                 },
-                body: JSON.stringify({image: image})
-            }).then(
-                res => res.json()
-            )
-            //this.status = response['Status'];
-            // if (this.status) 
-            //     this.msg = "Bem vindo"
-            // else
-            //     this.msg = "Login incorreto"
+            })
+            this.msg = "Feito :)"
         } catch (error) {
             console.log(error);
-            this.msg = "Ops ocorreu um erro inesperado :("
-        } finally {
-            this.isLoading = false;
+            this.msg = "Ops Ocorreu um erro"
         }
+        return this.msg
     }
 }
 
