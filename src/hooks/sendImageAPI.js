@@ -6,7 +6,7 @@ class sendImageAPI {
         this.msg = "";
     }
 
-    sendImageAPI = ( img ) => {
+    sendImageAPI = async( img ) => {
 
         let localUri = img.uri;
         let fileName = localUri.split('/').pop();
@@ -17,7 +17,7 @@ class sendImageAPI {
         formData.append('photo', { uri: localUri, name: fileName, type });
 
         try {
-            fetch(`${config.ApiPython}/getImage`, {
+            await fetch(`${config.ApiPython}/getImage`, {
                 method: 'POST',
                 body: formData,
                 headers: {

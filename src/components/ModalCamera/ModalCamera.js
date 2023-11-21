@@ -52,19 +52,24 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
         >
             <View style={styles.modal}>
                 <View style={styles.container}>
-                    {isLoading
-                    ? ( <View style={styles.cameraView} >
-                            <ActivityIndicator size="small" color={COLORS.Eggplant} />
-                        </View> )
-                    : ( <Camera
-                            style={styles.camera}
-                            type={type}
-                            flashMode={flash}
-                            ref={cameraRef}
-                        >
-                            <View style={styles.cameraView} />
-                        </Camera> )
-                    }
+                    <Camera
+                        style={styles.camera}
+                        type={type}
+                        flashMode={flash}
+                        ref={cameraRef}
+                    >
+
+                        {isLoading
+                        ? ( <View style={[styles.cameraView, {backgroundColor: "black"}]} >
+                                <ActivityIndicator size="large" color={COLORS.Eggplant} />
+                            </View> )
+                        : ( <View style={styles.cameraView}>
+                                <View style={styles.compoEtiqueta}>
+
+                                </View>
+                            </View> )
+                        }
+                    </Camera>
 
                     <SimpleButton 
                         style={styles.buttonCamera} 

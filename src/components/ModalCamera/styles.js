@@ -55,5 +55,11 @@ export default styles = StyleSheet.create({
         width: 30,
         height: 30,
         marginBottom: 20,
+    },
+    compoEtiqueta: {
+        width: 250,
+        height: 80,
+        borderWidth: 3,
+        borderColor: COLORS.OldRose
     }
 });

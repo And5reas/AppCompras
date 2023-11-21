@@ -1,11 +1,12 @@
 from flask import Flask, request
 from flask_ngrok import run_with_ngrok
+from PIL import Image
 from connDB import ConnDB
-
-import base64
+from ImageProcessing import ImageProcessing
 
 app = Flask(__name__)
 dataBase = ConnDB()
+possImg = ImageProcessing()
 
 app.secret_key = '2XwiT9cZrEzVyavIO3q2TBGuISx_3fegqbsuH7SgEzZscCrZG'
 run_with_ngrok(app)
@@ -37,7 +38,6 @@ def cadastrar():
     if dataBase.cadastrar(user, email, senha, confirmSenha):
         info = "Usuário cadastrado com sucesso!"
         status = True
-
     return {
         "Info": info,
         "Status": status,
@@ -45,8 +45,8 @@ def cadastrar():
 
 @app.route("/getImage", methods=['POST'])
 def getImage():
-    file = request.files['photo']
-    file.save('img.png')
+    imagem = request.files['photo']
+    possImg.MostrarImage(Image.open(imagem))
     return {
         "image": "oii"
     }
