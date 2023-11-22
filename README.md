@@ -84,8 +84,8 @@ Um APP para ajudar as pessoas a economizar dinheiro no mercado
     npm i @react-navigation/native
     npm i @react-navigation/stack
     npm i expo-font@~11.4.0
-    npm i expo-media-library@15.6.0
-    npm i expo-camera@13.6.0
+    npm i expo-media-library@~15.4.1
+    npm i expo-camera@~13.4.4
     npm i react-native-vision-camera
     npm i -g eas-cli
     npx expo install react-native-gesture-handler
