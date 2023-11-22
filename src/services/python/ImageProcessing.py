@@ -53,9 +53,24 @@ def extract_text(image: str):
     cv.waitKey()
     cv.destroyAllWindows()
 
+def testUploadImgur():
+    import requests
+    import base64
+    url = "https://api.imgur.com/3/image"
+    headers = {"Authorization": "Client-ID BAXhZu"}
+
+    with open("../../../test/images/Açucar Etiqueta.jpg", "rb") as file:
+        data = file.read()
+        base64_data = base64.b64encode(data)
+
+    response = requests.post(url, headers=headers, data={"image": base64_data})
+    url = response.json()["data"]
+    print(url)
+
 if __name__ == "__main__":
     # text = extract_text('..\\..\\..\\test\\ImagesCut\\Suco Instantaneo Etiqueta.jpg')
-    text = extract_text('..\\..\\..\\test\\ImagesCut\\Leite Etiqueta.jpg')
-    print(text)
+    # text = extract_text('..\\..\\..\\test\\ImagesCut\\Leite Etiqueta.jpg')
+    # print(text)
+    testUploadImgur()
 
         

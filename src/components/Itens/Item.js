@@ -20,7 +20,7 @@ export default function Item({ renderRightActions, itemProperties }){
         <Swipeable renderRightActions={renderRightActions} >
             <View style={styles.containerFlatList}>
                 <Image 
-                    source={itemProperties.image}
+                    source={{uri: "https://i.imgur.com/L3lvjDi.png"}}
                     style={styles.image}
                 />
                 <Text style={styles.textTitle} >{itemProperties.nameItem}</Text>

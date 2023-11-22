@@ -14,7 +14,7 @@ export default function HomeScreen() {
     return(
         <View style={styles.container}>
             <StatusBar barStyle="light-content" />
-            <Header />
+            <Header title="AppCompras" />
             <Itens />
             <ModalCamera exibirModal={modalVisible} setStateModal={setModalVisible} />
             <PlusButton onPress={() => setModalVisible(true)} />
