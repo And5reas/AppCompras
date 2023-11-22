@@ -1,6 +1,6 @@
 // React Imports
 import { useState, useEffect, useRef } from "react";
-import { View, Modal, ActivityIndicator } from "react-native"
+import { View, Modal, ActivityIndicator, Text } from "react-native"
 
 // Expo Imports
 import { Camera } from "expo-camera";
@@ -70,6 +70,8 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
                             </View> )
                         }
                     </Camera>
+
+                    <Text style={styles.textDica}>Centralizar etiqueta no retangulo a cima</Text>
 
                     <SimpleButton 
                         style={styles.buttonCamera} 

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { View, StatusBar } from "react-native";
 import { 
-    TabBarBottom, 
     PlusButton, 
     Header, 
     ModalCamera,
@@ -19,7 +18,6 @@ export default function HomeScreen() {
             <Itens />
             <ModalCamera exibirModal={modalVisible} setStateModal={setModalVisible} />
             <PlusButton onPress={() => setModalVisible(true)} />
-            <TabBarBottom />
         </View>
     );
 }

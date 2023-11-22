@@ -1,22 +1,15 @@
+import { Image } from "react-native";
+
 import { StyleSheet } from "react-native";
-import { SIZES, COLORS } from "../../constants";
+import { COLORS, SIZES } from "../constants";
 
 export default styles = StyleSheet.create({
-    container: {
-        position: "absolute",
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        alignItems: "center",
+    containerTabBar: {
         backgroundColor: COLORS.PaleDogwood,
-        borderTopWidth: 3,
         flexGrow: .02,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        height: SIZES.tabBarHeight,
-        top: SIZES.windowHeight - SIZES.tabBarHeight,
-        width: SIZES.windowWidth,
     },
     selectArea: {
+        borderBottomWidth: 2,
         height: SIZES.tabBarHeight,
         justifyContent: "center",
         ripple: [COLORS.OrchidPink, false, -1],

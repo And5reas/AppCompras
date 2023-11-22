@@ -12,11 +12,11 @@ export default styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
         width: 350,
-        height: 410,
         backgroundColor: COLORS.YinMnBlue2,
         borderRadius: 20,
         borderWidth: 5,
-        padding: 20
+        padding: 20,
+        paddingBottom: 5,
     },
     camera: {
         width: SIZES.cameraSize, 
@@ -33,7 +33,7 @@ export default styles = StyleSheet.create({
         alignItems: "center",
     },
     buttonCamera: {
-        marginTop: 15, 
+        marginTop: 10, 
         width: 310,
         height: 50,
         backgroundColor: COLORS.TeaRoseRed,
@@ -61,5 +61,15 @@ export default styles = StyleSheet.create({
         height: 80,
         borderWidth: 3,
         borderColor: COLORS.OldRose
-    }
+    },
+    textDica: {
+        fontWeight: "bold",
+        fontSize: SIZES.text.medium,
+        color: COLORS.OldRose,
+        backgroundColor: COLORS.SpaceCader1,
+        padding: 4,
+        borderRadius: 3,
+        marginTop: 10,
+        width: 310,
+    },
 });

@@ -78,6 +78,8 @@ Um APP para ajudar as pessoas a economizar dinheiro no mercado
 
 - [Warp Perspective / Bird View [6] | OpenCV Python Tutorials for Beginners 2020 - YouTube](https://www.youtube.com/watch?v=Tm_7fGolVGE&list=PLMoSUbG1Q_r_sc0x7ndCsqdIkL7dwrmNF&index=8&ab_channel=Murtaza%27sWorkshop-RoboticsandAI)
 
+- [CV2.WARPPERSPECTIVE()](https://theailearner.com/tag/cv2-warpperspective/)
+
 #### Setup NPM
 ---
 
@@ -88,6 +90,6 @@ Um APP para ajudar as pessoas a economizar dinheiro no mercado
     npm i expo-camera@~13.4.4
     npm i react-native-vision-camera
     npm i -g eas-cli
+    npm i @react-navigation/bottom-tabs
     npx expo install react-native-gesture-handler
     npx expo install expo-image-manipulator
-

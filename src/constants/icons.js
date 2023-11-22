@@ -8,6 +8,7 @@ import camera from "../assets/icons/camera.png"
 import close from "../assets/icons/close.png"
 import minus from "../assets/icons/minus.png"
 import removingItem from "../assets/icons/removingItem.png"
+import addingItem from "../assets/icons/addingItem.png"
 
 export default {
     appIcon,
@@ -20,4 +21,5 @@ export default {
     close,
     minus,
     removingItem,
+    addingItem,
 };

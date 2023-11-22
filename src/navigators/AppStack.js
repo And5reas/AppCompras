@@ -1,8 +1,12 @@
-import { createStackNavigator } from "@react-navigation/stack";
+import { View, Image } from "react-native";
 
-import { HomeScreen } from "../screens";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-const Stack = createStackNavigator();
+import { HomeScreen, AddItem } from "../screens";
+import { COLORS, icons } from "../constants";
+import styles from "./styles";
+
+const TabNavigator = createBottomTabNavigator();
 
 export default function AppStack() {
 
@@ -19,8 +23,8 @@ export default function AppStack() {
     };
 
     return(
-        <Stack.Navigator>
-            <Stack.Screen 
+        <TabNavigator.Navigator>
+            <TabNavigator.Screen 
                 name="Home"
                 component={HomeScreen}
                 options={{
@@ -29,8 +33,44 @@ export default function AppStack() {
                         open: config,
                         close: config,
                     },
+                    tabBarStyle: styles.containerTabBar,
+                    tabBarIcon: () => (
+                        <View style={styles.selectArea}>
+                            <Image 
+                                style={styles.itens}
+                                source={icons.tapHome}
+                            />
+                        </View>
+                    ),
+                    tabBarIconStyle: styles.icon,
+                    tabBarShowLabel: false,
+                    tabBarActiveBackgroundColor: COLORS.LavanderPink,
                 }}
             />
-        </Stack.Navigator>
+            <TabNavigator.Screen
+                name="AddItem"
+                component={AddItem}
+                options={{
+                    headerShown: false,
+                    transitionSpec: {
+                        open: config,
+                        close: config,
+                    },
+                    tabBarStyle: styles.containerTabBar,
+                    tabBarIcon: () => (
+                        <View style={styles.selectArea}>
+                            <Image 
+                                style={[styles.itens, {height: 50, width: 45}]}
+                                source={icons.addingItem}
+                            />
+                        </View>
+                    ),
+                    tabBarIconStyle: styles.icon,
+                    tabBarShowLabel: false,
+                    tabBarActiveBackgroundColor: COLORS.LavanderPink,
+                }}
+            
+            />
+        </TabNavigator.Navigator>
     )
 }
