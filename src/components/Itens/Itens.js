@@ -7,9 +7,9 @@ import styles from "./styles";
 export default function Itens() {
 
     const [listItens, setListItens] = useState([
-        {id: 1, valorItem: 3.78, nameItem: "Leite", image: "https://reactnative.dev/img/header_logo.svg 2x"},  
-        {id: 2, valorItem: 10.49, nameItem: "Refri", image: require("../../../test/images/Refri.jpg")},  
-        {id: 3, valorItem: 18.99, nameItem: "Ovinhos", image: require("../../../test/images/Ovinhos.jpg")},  
+        {id: 1, valorItem: 3.78, nameItem: "Leite", image: "https://i.imgur.com/0XsItwB.jpg"},  
+        {id: 2, valorItem: 10.49, nameItem: "Refri", image: "https://i.imgur.com/qQD54zI.jpg"},  
+        {id: 3, valorItem: 18.99, nameItem: "Ovinhos", image: "https://i.imgur.com/0XsItwB.jpg"},  
     ]);
 
     const handleDelete = item => {

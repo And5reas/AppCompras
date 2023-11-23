@@ -80,6 +80,10 @@ Um APP para ajudar as pessoas a economizar dinheiro no mercado
 
 - [CV2.WARPPERSPECTIVE()](https://theailearner.com/tag/cv2-warpperspective/)
 
+- [[Python] - How to upload an image to Imgur and get its URL using Python](https://www.shecodes.io/athena/67790-how-to-upload-an-image-to-imgur-and-get-its-url-using-python)
+
+- [Creating your own custom Client ID](https://flameshot.org/docs/guide/imgur-help/#:~:text=In%20case%20you%20ever%20forget,%3A%2F%2Fapi.imgur.com%20.)
+
 #### Setup NPM
 ---
 
