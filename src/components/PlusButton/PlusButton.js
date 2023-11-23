@@ -7,8 +7,8 @@ export default function PlusButton({ onPress }) {
         <TouchableNativeFeedback onPress={onPress}>
             <View style={styles.container}>
                 <Image
-                    source={icons.plus}
-                    style={styles.plus}
+                    source={icons.camera}
+                    style={styles.camera}
                 />
             </View>
         </TouchableNativeFeedback>
