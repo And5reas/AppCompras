@@ -10,7 +10,7 @@ class sendImageAPI {
 
         let localUri = img.uri;
         let fileName = localUri.split('/').pop();
-        let match = /\.(\w+)$/.exec(fileName);
+        let match = /\.(\w+)$/.exec(fileName); // Regular expressions
         let type = match ? `image/${match[1]}` : `image`;
         const formData = new FormData()
 

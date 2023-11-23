@@ -3,6 +3,7 @@ import numpy as np
 import pytesseract
 from PIL import Image
 import json
+import os
 
 def MostrarImage(self, img):
     imagem = np.array(img)
@@ -62,4 +63,18 @@ def testUploadImgur():
     url = response.json()["data"]
     print(url)
 
-testUploadImgur()
+# Redimencionar images teste para { width: 1020, height: 920 }
+def redimencionarImagens():
+    for image in os.listdir('images/'):
+        img = cv.imread(F"images/{image}")
+
+        img = cv.resize(img, (1020, 920))
+
+        cv.imwrite(F"imagesResized/{image}", img)
+
+        # Apenas para ver se deu certo
+        # cv.imshow('img', img)
+        # cv.waitKey()
+        # cv.destroyAllWindows()
+
+redimencionarImagens()

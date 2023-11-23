@@ -35,7 +35,7 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
             try {
                 const picture = await cameraRef.current.takePictureAsync();
                 setIsLoading(true);
-                const pictureResized = await manipulateAsync(picture.uri, [{resize: { width: 1020, height: 920} }])
+                const pictureResized = await manipulateAsync(picture.uri, [{resize: { width: 1020, height: 920 } }])
                 console.log(await sendImage.sendImageAPI(pictureResized)); 
                 setIsLoading(false);
             } catch (e) {

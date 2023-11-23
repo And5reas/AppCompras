@@ -64,6 +64,10 @@ Um APP para ajudar as pessoas a economizar dinheiro no mercado
 
 - [react native - How can I upload a photo with Expo? - Stack Overflow](https://stackoverflow.com/questions/42521679/how-can-i-upload-a-photo-with-expo)
 
+- [Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions)
+
+- [Assertions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)
+
 - [python flask restfull receive image - Stack Overflow](https://stackoverflow.com/questions/47195612/python-flask-restfull-receive-image)
 
 - [OpenCV Python Tutorial - TutorialKart](https://www.tutorialkart.com/opencv/python/#gsc.tab=0)
