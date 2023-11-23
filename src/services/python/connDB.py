@@ -3,6 +3,7 @@ import pyodbc
 
 class ConnDB:
     def __init__(self):
+        # Fazer a configurações iniciais para se comunicar com o SQL Server
         DRIVE_NAME = 'SQL Server'
         SERVER_NAME = '.\\SQLEXPRESS'
         DATABASE_NAME = 'AppCompras'
@@ -11,22 +12,6 @@ class ConnDB:
             SERVER={SERVER_NAME};
             DATABASE={DATABASE_NAME};
         """
-
-    def teste(self):
-
-        conn = pyodbc.connect(self.connectionString)
-        
-        cursor = conn.cursor()
-
-        cursor.execute("sl_loginP 'Hansol', 'stwr478'")
-        
-        table = cursor.fetchval()
-
-        if table:
-            print('batata')
-
-
-        print(table)
 
     def verifLogin(self, user, senha):
         conn = pyodbc.connect(self.connectionString)

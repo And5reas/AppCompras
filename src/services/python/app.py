@@ -4,40 +4,42 @@ from PIL import Image
 from connDB import ConnDB
 from ImageProcessing import ImageProcessing
 
+# Setando as instâncias necessárias
 app = Flask(__name__)
 dataBase = ConnDB()
 possImg = ImageProcessing()
 
-app.secret_key = '2XwiT9cZrEzVyavIO3q2TBGuISx_3fegqbsuH7SgEzZscCrZG'
-run_with_ngrok(app)
+app.secret_key = '2XwiT9cZrEzVyavIO3q2TBGuISx_3fegqbsuH7SgEzZscCrZG'  # Setar a chave de acesso da minha conta no ngrok
+run_with_ngrok(app)  # Fazer conexão, para ele gerar uma URL Online, ao invés de local.
 
 @app.route("/login")
 def login():
-    status = False
+    status = False  # Setar o estado de sucesso como default "False"
     
-    user = request.args.get('User')
-    senha = request.args.get('Senha')
+    user = request.args.get('User')  # Pegar o dado com compo usuário chamado assim: "http://API.com/login?User=<algo>"
+    senha = request.args.get('Senha')  # Pegar o dado com compo senha chamado assim: "http://API.com/login?User=<algo>&Senha=<algo>"
 
-    if dataBase.verifLogin(user, senha):
-        status = True
+    if dataBase.verifLogin(user, senha):  # Informações tratadas diretamento pelo banco 
+        status = True  # Setar "status" para "True" se der tudo certo
         
     return {
-        "Status": status,
+        "Status": status,  # Enviar a Validação do login
     }
 
 @app.route("/cadastrar")
 def cadastrar():
-    status = False
-    info = "Ops, parece que ocorreu um erro :("
+    status = False  # Setar por default o status para "False"
+    info = "Ops, parece que ocorreu um erro :("  # Setar por default um erro
 
+    # Pegar as informações via API, fornecidas pelo cliente
     user = request.args.get('User')
     email = request.args.get('Email') 
     senha = request.args.get('Senha')
     confirmSenha = request.args.get('ConfirSenha')
 
-    if dataBase.cadastrar(user, email, senha, confirmSenha):
-        info = "Usuário cadastrado com sucesso!"
-        status = True
+    if dataBase.cadastrar(user, email, senha, confirmSenha):  # Verificar internamente pelo banco
+        info = "Usuário cadastrado com sucesso!"  # Setar a msg de feedback
+        status = True  # Validar o cadastro para o react
     return {
         "Info": info,
         "Status": status,
@@ -45,12 +47,9 @@ def cadastrar():
 
 @app.route("/getImage", methods=['POST'])
 def getImage():
-    imagem = request.files['photo']
-    possImg.MostrarImage(Image.open(imagem))
-    return {
-        "image": "oii"
-    }
-    
+    imagem = request.files['photo']  # Receber o arquivo.jpg fornecido pelo react
 
+    # Ainda não faz nada, mas futuramente irá receber essa image e tratar de alguma forma
+    
 if __name__ == "__main__":
-    app.run()
+    app.run()  # Iniciar o Servidor

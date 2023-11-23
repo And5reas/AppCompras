@@ -4,6 +4,7 @@ import pytesseract
 from PIL import Image
 import json
 import os
+import pyodbc
 
 def MostrarImage(self, img):
     imagem = np.array(img)
@@ -77,4 +78,20 @@ def redimencionarImagens():
         # cv.waitKey()
         # cv.destroyAllWindows()
 
-redimencionarImagens()
+
+def teste(self):
+
+    conn = pyodbc.connect(self.connectionString)
+    
+    cursor = conn.cursor()
+
+    cursor.execute("sl_loginP 'Hansol', 'stwr478'")
+    
+    table = cursor.fetchval()
+
+    if table:
+        print('batata')
+
+
+    print(table)
+
