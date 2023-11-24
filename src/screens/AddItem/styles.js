@@ -15,15 +15,20 @@ export default styles = StyleSheet.create({
         borderBottomWidth: 3,
         borderTopLeftRadius: 5,
         borderBottomLeftRadius: 5,
+        color: COLORS.OrchidPink,
+        borderColor: COLORS.AmaranthPink
     },
     textInput: {
         backgroundColor: COLORS.MarianBlue,
         width: 220,
         fontSize: SIZES.text.medium,
         borderBottomWidth: 3,
+        borderRightWidth: 3,
         borderTopRightRadius: 5,
         borderBottomRightRadius: 5,
-        paddingRight: 10
+        paddingRight: 10,
+        color: COLORS.OrchidPink,
+        borderColor: COLORS.AmaranthPink
     },
     button: {
         marginTop: 20,

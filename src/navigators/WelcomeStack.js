@@ -4,7 +4,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { LoginScreen, CadastroScreen } from "../screens";
 import { COLORS } from "../constants";
 import AppStack from "./AppStack";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const Stack = createStackNavigator();
 

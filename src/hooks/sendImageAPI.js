@@ -8,7 +8,7 @@ class sendImageAPI {
 
     sendImageAPI = async( img ) => {
 
-        let localUri = img.uri;
+        let localUri = img;
         let fileName = localUri.split('/').pop();
         let match = /\.(\w+)$/.exec(fileName); // Regular expressions
         let type = match ? `image/${match[1]}` : `image`;
@@ -17,7 +17,7 @@ class sendImageAPI {
         formData.append('photo', { uri: localUri, name: fileName, type });
 
         try {
-            await fetch(`${config.ApiPython}/getImage`, {
+            await fetch(`${config.ApiPython}/image`, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -29,7 +29,6 @@ class sendImageAPI {
             console.log(error);
             this.msg = "Ops Ocorreu um erro"
         }
-        return this.msg
     }
 }
 

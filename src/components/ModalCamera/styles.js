@@ -56,12 +56,6 @@ export default styles = StyleSheet.create({
         height: 30,
         marginBottom: 20,
     },
-    compoEtiqueta: {
-        width: 250,
-        height: 80,
-        borderWidth: 3,
-        borderColor: COLORS.OldRose
-    },
     textDica: {
         fontWeight: "bold",
         fontSize: SIZES.text.medium,

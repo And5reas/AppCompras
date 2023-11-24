@@ -6,8 +6,7 @@ import json
 
 class ImageProcessing:
     def __init__(self):
-        configFile = open("../../config/config.json")
-        TESSERACT_PATH = json.load(configFile)["TesseractPath"]
+        pass
 
 
 if __name__ == "__main__":

@@ -45,9 +45,18 @@ def cadastrar():
         "Status": status,
     }
 
-@app.route("/getImage", methods=['POST'])
-def getImage():
-    imagem = request.files['photo']  # Receber o arquivo.jpg fornecido pelo react
+@app.route("/image", methods=['POST', 'GET'])
+def image():
+    if request.method == 'POST':
+        imagem = request.files['photo']  # Receber o arquivo.jpg fornecido pelo react
+
+        imagem.save("img.jpg")
+
+    if request.method == 'GET':
+        pass
+    return {
+        "sla": "oii"
+    }
 
     # Ainda não faz nada, mas futuramente irá receber essa image e tratar de alguma forma
     

@@ -9,6 +9,7 @@ import close from "../assets/icons/close.png"
 import minus from "../assets/icons/minus.png"
 import removingItem from "../assets/icons/removingItem.png"
 import addingItem from "../assets/icons/addingItem.png"
+import backImage from "../assets/icons/backImage.png"
 
 export default {
     appIcon,
@@ -22,4 +23,5 @@ export default {
     minus,
     removingItem,
     addingItem,
+    backImage,
 };

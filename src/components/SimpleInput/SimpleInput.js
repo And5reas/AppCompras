@@ -11,6 +11,8 @@ export default function SimpleInput({
     secureState, 
     keyboardType, 
     textAlign,
+    placeholder,
+    placeholderTextColor,
 }){
     return(
         <React.Fragment>
@@ -22,6 +24,8 @@ export default function SimpleInput({
                 secureTextEntry={secureState}
                 keyboardType={keyboardType}
                 textAlign={textAlign}
+                placeholder={placeholder}
+                placeholderTextColor={placeholderTextColor}
             />
         </React.Fragment>
     )
