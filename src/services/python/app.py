@@ -40,6 +40,7 @@ def cadastrar():
     if dataBase.cadastrar(user, email, senha, confirmSenha):  # Verificar internamente pelo banco
         info = "Usuário cadastrado com sucesso!"  # Setar a msg de feedback
         status = True  # Validar o cadastro para o react
+
     return {
         "Info": info,
         "Status": status,
@@ -59,6 +60,25 @@ def image():
     }
 
     # Ainda não faz nada, mas futuramente irá receber essa image e tratar de alguma forma
-    
+
+@app.route("/cadastrarItem")
+def cadastrarItem():
+    status = False
+    msg = "Ops, ocorreu um erro"
+
+    nomeItem = request.args.get('nomeItem')
+    urlImg = request.args.get('urlImg')
+    valorVarejo = request.args.get('valorVarejo')
+    valorAtacado = request.args.get('valorAtacado')
+
+    if dataBase.cadastrarItem(nomeItem, urlImg, valorVarejo, valorAtacado):
+        msg = "Item cadastrado com sucesso!"
+        status = True
+
+    return {
+        "status": status,
+        "msg": msg
+    }
+
 if __name__ == "__main__":
     app.run()  # Iniciar o Servidor

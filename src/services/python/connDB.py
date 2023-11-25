@@ -41,9 +41,27 @@ class ConnDB:
             return True
         return False
     
+    def cadastrarItem(self, nome, imgUrl, valorVarejo, valorAtacado):
+        conn = pyodbc.connect(self.connectionString)
+        cursor = conn.cursor()
+        cursor.execute(F"EXEC in_cadastrarItemP '{nome}', '{imgUrl}', {valorVarejo}, {valorAtacado}")
+        try:
+            retorno = cursor.fetchall()
+            if not retorno[0][0]:
+                retorno = False 
+        except:
+            retorno = True
+        cursor.commit()
+        cursor.close()
+        conn.close()
+        if retorno:
+            return True
+        return False
+    
 # db = ConnDB()
 # print(db.verifLogin("Andreas", "123"))
-# print(db.verifLogin("Joao", "abc1r1"))
+# # print(db.verifLogin("Joao", "abc1r1"))
+# db.cadastrarItem('Andreas', 'dsf4', '4.35', '4.67')
 
 
     
