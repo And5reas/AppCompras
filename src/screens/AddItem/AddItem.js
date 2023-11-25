@@ -4,20 +4,28 @@ import { Header, SimpleInput, SimpleButton, CameraEtiqueta } from "../../compone
 import styles from "./styles";
 import { COLORS } from "../../constants";
 import { useState } from "react";
+import { cadastrarItemAPI, sendImageAPI } from "../../hooks";
 
 export default function AddItem() {
-    const [imgUri, setImgUri] = useState("");
     const [nmProduto, setNmProduto] = useState("");
+    const [imgUri, setImgUri] = useState("");
     const [vlVarejo, setVlVarejo] = useState("");
     const [vlAtacado, setVlAtacado] = useState("");
     const [keyBoardShow, setKeyBoardShow] = useState(false);
+    const cadastrarItem = new cadastrarItemAPI();
+    const sendImage = new sendImageAPI();
+    let msg = "";
 
     const ValidInfo = () => {
-        if (nmProduto == "" || vlVarejo == "" || vlAtacado == "")
-            return "Todos os compos devem estár preenchidos"
-        if (imgUri == "")
-            return "Tire uma foto do produto"
-        return "Cadastrar o produto via api"
+        if (nmProduto == "" || vlVarejo == ""){
+            msg =  "Todos os compos devem estár preenchidos"
+            return false
+        }
+        else if (imgUri == ""){
+            msg =  "Tire uma foto do produto"
+            return false
+        }
+        else return true
     }
 
     useEffect(() => {
@@ -75,7 +83,15 @@ export default function AddItem() {
                 title="Adicionar Item"
                 style={styles.button}
                 textStyle={styles.text}
-                action={() => {console.log(ValidInfo())}}
+                action={() => {
+                    ValidInfo()
+                    ?   (async() => {
+                            await sendImage.sendImageAPI(imgUri);
+                            if (vlAtacado == "") setVlAtacado("0");
+                            await cadastrarItem.cadastrarItemAPI(nmProduto, vlVarejo - 0, vlAtacado - 0);
+                        })()
+                    :   console.log('batat')
+                }}
             />
         </View>
     )

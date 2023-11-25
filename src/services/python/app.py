@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_ngrok import run_with_ngrok
-from PIL import Image
+from time import sleep
 from connDB import ConnDB
 from ImageProcessing import ImageProcessing
 
@@ -8,6 +8,7 @@ from ImageProcessing import ImageProcessing
 app = Flask(__name__)
 dataBase = ConnDB()
 possImg = ImageProcessing()
+urlImg = ""
 
 app.secret_key = '2XwiT9cZrEzVyavIO3q2TBGuISx_3fegqbsuH7SgEzZscCrZG'  # Setar a chave de acesso da minha conta no ngrok
 run_with_ngrok(app)  # Fazer conexão, para ele gerar uma URL Online, ao invés de local.
@@ -48,10 +49,13 @@ def cadastrar():
 
 @app.route("/image", methods=['POST', 'GET'])
 def image():
+    global urlImg
     if request.method == 'POST':
         imagem = request.files['photo']  # Receber o arquivo.jpg fornecido pelo react
 
-        imagem.save("img.jpg")
+        urlImg = ImageProcessing.sendAndGetUrlImage(imagem)
+
+        sleep(2)
 
     if request.method == 'GET':
         pass
@@ -63,13 +67,13 @@ def image():
 
 @app.route("/cadastrarItem")
 def cadastrarItem():
+    global urlImg
     status = False
     msg = "Ops, ocorreu um erro"
 
     nomeItem = request.args.get('nomeItem')
-    urlImg = request.args.get('urlImg')
-    valorVarejo = request.args.get('valorVarejo')
-    valorAtacado = request.args.get('valorAtacado')
+    valorVarejo = float(request.args.get('valorVarejo'))
+    valorAtacado = float(request.args.get('valorAtacado'))
 
     if dataBase.cadastrarItem(nomeItem, urlImg, valorVarejo, valorAtacado):
         msg = "Item cadastrado com sucesso!"

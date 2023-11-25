@@ -44,7 +44,10 @@ class ConnDB:
     def cadastrarItem(self, nome, imgUrl, valorVarejo, valorAtacado):
         conn = pyodbc.connect(self.connectionString)
         cursor = conn.cursor()
-        cursor.execute(F"EXEC in_cadastrarItemP '{nome}', '{imgUrl}', {valorVarejo}, {valorAtacado}")
+        if valorAtacado == 0:
+            cursor.execute(F"EXEC in_cadastrarItemP '{nome}', '{imgUrl}', {valorVarejo}, NULL")
+        else:
+            cursor.execute(F"EXEC in_cadastrarItemP '{nome}', '{imgUrl}', {valorVarejo}, {valorAtacado}")
         try:
             retorno = cursor.fetchall()
             if not retorno[0][0]:

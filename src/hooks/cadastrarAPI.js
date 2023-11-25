@@ -4,7 +4,6 @@ class cadastrarAPI {
     constructor(){
         this.status = null;
         this.info = "";
-        this.registerSuccess = null;
         this.isLoading = null;
     }
 
