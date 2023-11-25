@@ -9,10 +9,9 @@ import { SimpleButton } from "../../components";
 import { COLORS, icons } from "../../constants";
 import styles from "./styles";
 
-export default function CameraEtiqueta({ image, setImage, hideImage }){
+export default function CameraEtiqueta({ image, setImage, hideImage, pictureNotTaken, setPictureNotTaken }){
     const [hasCameraPermission, setHasCameraPermission] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [pictureNotTaken, setPictureNotTaken] = useState(true);
     const type = Camera.Constants.Type.back;
     const flash = Camera.Constants.FlashMode.off;
     const cameraRef = useRef(null);

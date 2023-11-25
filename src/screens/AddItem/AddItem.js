@@ -6,12 +6,14 @@ import { COLORS } from "../../constants";
 import { useState } from "react";
 import { cadastrarItemAPI, sendImageAPI } from "../../hooks";
 
-export default function AddItem() {
+export default function AddItem({ navigation }) {
     const [nmProduto, setNmProduto] = useState("");
     const [imgUri, setImgUri] = useState("");
     const [vlVarejo, setVlVarejo] = useState("");
     const [vlAtacado, setVlAtacado] = useState("");
     const [keyBoardShow, setKeyBoardShow] = useState(false);
+    const [pictureNotTaken, setPictureNotTaken] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const cadastrarItem = new cadastrarItemAPI();
     const sendImage = new sendImageAPI();
     let msg = "";
@@ -40,7 +42,13 @@ export default function AddItem() {
     return(
         <View style={styles.container}>
             <Header title="Cadastrar Item" />
-            <CameraEtiqueta image={imgUri} setImage={setImgUri} hideImage={keyBoardShow} />
+            <CameraEtiqueta 
+                image={imgUri} 
+                setImage={setImgUri} 
+                hideImage={keyBoardShow} 
+                pictureNotTaken={pictureNotTaken} 
+                setPictureNotTaken={setPictureNotTaken}
+            />
             <View style={{flexDirection: "row", marginTop: 10}}>
                 <SimpleInput 
                     nmField="Produto: "
@@ -83,12 +91,21 @@ export default function AddItem() {
                 title="Adicionar Item"
                 style={styles.button}
                 textStyle={styles.text}
+                isLoading={isLoading}
                 action={() => {
                     ValidInfo()
                     ?   (async() => {
+                            setIsLoading(true)
                             await sendImage.sendImageAPI(imgUri);
                             if (vlAtacado == "") setVlAtacado("0");
                             await cadastrarItem.cadastrarItemAPI(nmProduto, vlVarejo - 0, vlAtacado - 0);
+                            setNmProduto("");
+                            setImgUri(" ");
+                            setVlVarejo("");
+                            setVlAtacado("");
+                            setPictureNotTaken(true);
+                            setIsLoading(false)
+                            navigation.navigate("Home")
                         })()
                     :   console.log('batat')
                 }}
