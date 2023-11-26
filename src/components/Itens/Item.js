@@ -11,22 +11,25 @@ export default function Item({ renderRightActions, itemProperties }){
 
     const onClick = (sing) => {
         sing == "+"
-        ? setQtd(qtd + 1) 
-        : (qtd > 1)? setQtd(qtd - 1)
-        : setQtd(1);
+        ? itemProperties.qtd += 1 
+        : (qtd > 1)? itemProperties.qtd -= 1 
+        : itemProperties.qtd = 1 ;
+        setQtd(itemProperties.qtd)
     }
 
     return(
         <Swipeable renderRightActions={renderRightActions} >
             <View style={styles.containerFlatList}>
                 <Image 
-                    source={{uri: itemProperties.image}}
+                    source={{uri: itemProperties.img}}
                     style={styles.image}
                 />
-                <Text style={styles.textTitle} >{itemProperties.nameItem}</Text>
+                <View style={styles.viewTextName}>
+                    <Text style={styles.textTitle} >{itemProperties.nome}</Text>
+                </View>
                 <View style={styles.ViewNormal}>
                     <View style={styles.ViewRow}>
-                        <Text style={styles.text}>R${MultiplicarValorQtd(itemProperties.valorItem, qtd)}</Text>
+                        <Text style={styles.text}>R${MultiplicarValorQtd(itemProperties.valorVarejo.toFixed(2), qtd)}</Text>
                     </View>
                     <View style={styles.ViewRow}>
                         <TouchableOpacity onPress={() => onClick("-")}>

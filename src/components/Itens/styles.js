@@ -3,7 +3,7 @@ import { COLORS, SIZES } from "../../constants";
 
 export default styles = StyleSheet.create({
     container: {
-        marginTop: 60
+        marginTop: 70
     },
     containerFlatList: {
         flexDirection: "row",
@@ -61,6 +61,9 @@ export default styles = StyleSheet.create({
         width: 60,
         height: 70,
         marginRight: 25
+    },
+    viewTextName: {
+        width: 170,
     }
 });
 

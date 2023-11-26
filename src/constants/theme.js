@@ -39,7 +39,7 @@ const SIZES = {
     windowHeight: Dimensions.get("window").height,
     windowWidth: Dimensions.get("window").width,
     tabBottomIcon: 40,
-    tabBarHeight: 60,
+    tabBarHeight: 70,
     cameraSize: 300,
 };
 
