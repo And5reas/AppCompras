@@ -39,11 +39,11 @@ export default styles = StyleSheet.create({
         marginRight: 10,
     },
     text: {
-        fontSize: 20,
+        fontSize: SIZES.text.large,
         marginBottom: 10,
     },
     textTitle: {
-        fontSize: 20,
+        fontSize: SIZES.text.large,
         marginLeft: 10,
         marginRight: 20,
     },

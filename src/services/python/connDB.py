@@ -61,6 +61,15 @@ class ConnDB:
             return True
         return False
     
+    def selectItens(self):
+        conn = pyodbc.connect(self.connectionString)
+        cursor = conn.cursor()
+        cursor.execute(F"EXEC sl_itens")
+        retorno = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return retorno
+    
 # db = ConnDB()
 # print(db.verifLogin("Andreas", "123"))
 # # print(db.verifLogin("Joao", "abc1r1"))

@@ -2,7 +2,7 @@ import { View, Image } from "react-native";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { HomeScreen, AddItem } from "../screens";
+import { HomeScreen, AddItem, ItensCadastrados } from "../screens";
 import { COLORS, icons } from "../constants";
 import styles from "./styles";
 
@@ -24,6 +24,29 @@ export default function AppStack() {
 
     return(
         <TabNavigator.Navigator>
+            <TabNavigator.Screen 
+                name="getItem"
+                component={ItensCadastrados}
+                options={{
+                    headerShown: false,
+                    transitionSpec: {
+                        open: config,
+                        close: config,
+                    },
+                    tabBarStyle: styles.containerTabBar,
+                    tabBarIcon: () => (
+                        <View style={styles.selectArea}>
+                            <Image 
+                                style={styles.itens}
+                                source={icons.tapHome}
+                            />
+                        </View>
+                    ),
+                    tabBarIconStyle: styles.icon,
+                    tabBarShowLabel: false,
+                    tabBarActiveBackgroundColor: COLORS.LavanderPink,
+                }}
+            />
             <TabNavigator.Screen 
                 name="Home"
                 component={HomeScreen}

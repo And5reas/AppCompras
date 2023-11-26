@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request
 from flask_ngrok import run_with_ngrok
 from time import sleep
@@ -83,6 +84,26 @@ def cadastrarItem():
         "status": status,
         "msg": msg
     }
+
+@app.route("/getItens")
+def getItens():
+    returnList = {}
+    aux = 0
+
+    lista = dataBase.selectItens()
+
+    for item in lista:
+        json = {}
+        json["id"] = item[0]
+        json["nome"] = item[1]
+        json["img"] = item[2]
+        json["valorVarejo"] = item[3]
+        json["valorAtacado"] = item[4]
+        returnList.update({F"{aux}": json})
+        aux += 1
+    returnList["QuantidadeItens"] = aux
+
+    return returnList
 
 if __name__ == "__main__":
     app.run()  # Iniciar o Servidor

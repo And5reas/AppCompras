@@ -22,3 +22,9 @@ const oii = new User(10)
 console.log(oi.num)
 
 console.log(User.getCurrentUser());
+
+// creating a json file
+
+const test = JSON.stringify(we);
+sla = require('fs');
+sla.writeFile('myFileJson.json', test);
