@@ -1,21 +1,31 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TouchableWithoutFeedback, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { icons } from "../../constants";
 import { MultiplicarValorQtd } from "../../helpers";
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import styles from "./styles";
 
-export default function Item({ renderRightActions, itemProperties }){
+console.log("---------------")
+
+export default function Item({ renderRightActions, itemProperties, setValorTotal }){
     
     const [qtd, setQtd] = useState(1);
 
     const onClick = (sing) => {
         sing == "+"
-        ? itemProperties.qtd += 1 
-        : (qtd > 1)? itemProperties.qtd -= 1 
+        ?   (
+            itemProperties.qtd += 1,
+            setValorTotal(itemProperties.getValorTotal('increment'))
+            )
+        :   (qtd > 1)? (
+            itemProperties.qtd -= 1,
+            setValorTotal(itemProperties.getValorTotal('decrement'))
+            ) 
         : itemProperties.qtd = 1 ;
         setQtd(itemProperties.qtd)
     }
+
+    console.log("item: " + "Rerender")
 
     return(
         <Swipeable renderRightActions={renderRightActions} >

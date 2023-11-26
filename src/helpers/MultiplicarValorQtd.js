@@ -1,3 +1,5 @@
 export default function MultiplicarValorQtd(valor, quantidade){
-    return (valor*quantidade).toLocaleString()
+    calc = valor*quantidade
+    valor = calc
+    return calc.toLocaleString()
 }

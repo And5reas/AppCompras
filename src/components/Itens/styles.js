@@ -64,6 +64,15 @@ export default styles = StyleSheet.create({
     },
     viewTextName: {
         width: 170,
-    }
+    },
+    totalText: {
+        color: "#FF0",
+        fontSize: SIZES.text.large
+    },
+    viewTotal: {
+        alignItems: "center",
+        justifyContent: "flex-end",
+        height: 60
+    },
 });
 

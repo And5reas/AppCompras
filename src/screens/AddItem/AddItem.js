@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Keyboard, View } from "react-native";
-import { Header, SimpleInput, SimpleButton, CameraEtiqueta } from "../../components";
+import { Header, SimpleInput, SimpleButton, CameraProduto } from "../../components";
 import styles from "./styles";
 import { COLORS } from "../../constants";
 import { useState } from "react";
@@ -42,7 +42,7 @@ export default function AddItem({ navigation }) {
     return(
         <View style={styles.container}>
             <Header title="Cadastrar Item" />
-            <CameraEtiqueta 
+            <CameraProduto 
                 image={imgUri} 
                 setImage={setImgUri} 
                 hideImage={keyBoardShow} 

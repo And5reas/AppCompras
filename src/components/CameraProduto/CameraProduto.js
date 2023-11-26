@@ -5,11 +5,11 @@ import { Camera } from "expo-camera";
 import { manipulateAsync } from "expo-image-manipulator";
 import * as MediaLabrary from "expo-media-library";
 
-import { SimpleButton } from "../../components";
+import { SimpleButton } from "..";
 import { COLORS, icons } from "../../constants";
 import styles from "./styles";
 
-export default function CameraEtiqueta({ image, setImage, hideImage, pictureNotTaken, setPictureNotTaken }){
+export default function CameraProduto({ image, setImage, hideImage, pictureNotTaken, setPictureNotTaken }){
     const [hasCameraPermission, setHasCameraPermission] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const type = Camera.Constants.Type.back;
@@ -21,7 +21,7 @@ export default function CameraEtiqueta({ image, setImage, hideImage, pictureNotT
             MediaLabrary.requestPermissionsAsync();
             const cameraStatus = await Camera.requestCameraPermissionsAsync();
             setHasCameraPermission(cameraStatus.status === 'granted');
-        })();
+        })(cameraRef);
     }, [])
 
     const takeThumb = async() => {
