@@ -15,7 +15,7 @@ export default function ValorTotal({ getSetValorTotal, handleDelete }){
 
     return(
         <View style={styles.viewTotal}>
-            <Text style={styles.totalText}>Valor total R$ {valorTotal.toFixed(2)}</Text>
+            <Text style={styles.totalText}>Valor total R$ {Math.abs(valorTotal).toFixed(2)}</Text>
         </View>
     )
 }
