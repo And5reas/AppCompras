@@ -8,7 +8,7 @@ import { cadastrarItemAPI, sendImageAPI } from "../../hooks";
 
 export default function AddItem({ navigation }) {
     const [nmProduto, setNmProduto] = useState("");
-    const [imgUri, setImgUri] = useState("");
+    const [imgUri, setImgUri] = useState("a");
     const [vlVarejo, setVlVarejo] = useState("");
     const [vlAtacado, setVlAtacado] = useState("");
     const [keyBoardShow, setKeyBoardShow] = useState(false);

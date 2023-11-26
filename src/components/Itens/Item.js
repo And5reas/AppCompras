@@ -5,8 +5,6 @@ import { MultiplicarValorQtd } from "../../helpers";
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import styles from "./styles";
 
-console.log("---------------")
-
 export default function Item({ renderRightActions, itemProperties, setValorTotal }){
     
     const [qtd, setQtd] = useState(1);
@@ -24,8 +22,6 @@ export default function Item({ renderRightActions, itemProperties, setValorTotal
         : itemProperties.qtd = 1 ;
         setQtd(itemProperties.qtd)
     }
-
-    console.log("item: " + "Rerender")
 
     return(
         <Swipeable renderRightActions={renderRightActions} >

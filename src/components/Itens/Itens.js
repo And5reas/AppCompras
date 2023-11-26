@@ -18,8 +18,6 @@ export default function Itens({ listItens, setListItens }) {
         item.delete(setValorTotal)
     }
 
-    console.log("itens: " + "Rerender")
-
     return(
         <View style={styles.container}>
             <FlatList 

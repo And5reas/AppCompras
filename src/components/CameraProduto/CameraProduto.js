@@ -1,5 +1,5 @@
 import { View, Text, ActivityIndicator, Image } from "react-native";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 
 import { Camera } from "expo-camera";
 import { manipulateAsync } from "expo-image-manipulator";
@@ -33,8 +33,9 @@ export default function CameraProduto({ image, setImage, hideImage, pictureNotTa
                 setImage(pictureResized.uri);
                 setIsLoading(false);
                 setPictureNotTaken(false);
-            } catch (e) {
-                console.log(e);
+            } catch {
+                setPictureNotTaken(false);
+                setPictureNotTaken(true);
             }
         }
     }
@@ -43,7 +44,7 @@ export default function CameraProduto({ image, setImage, hideImage, pictureNotTa
         <View style={styles.container}>
             {hasCameraPermission
             ? pictureNotTaken
-            ?   <Camera
+            ? <Camera
                     style={styles.camera}
                     type={type}
                     flashMode={flash}
@@ -73,7 +74,7 @@ export default function CameraProduto({ image, setImage, hideImage, pictureNotTa
                         icon={icons.backImage}
                         styleIcon={styles.icon}
                         action={() => {
-                            setImage("")
+                            setImage("a")
                             setPictureNotTaken(true)
                         }}
                     />
