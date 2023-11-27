@@ -1,5 +1,5 @@
 import { View, Text, ActivityIndicator, Image } from "react-native";
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { Camera } from "expo-camera";
 import { manipulateAsync } from "expo-image-manipulator";

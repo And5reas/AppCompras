@@ -10,7 +10,7 @@ import * as MediaLabrary from "expo-media-library";
 // Project Imports
 import { SimpleButton } from "../../components";
 import { icons, COLORS } from "../../constants";
-import { sendImageAPI } from "../../hooks";
+import { sendImageAPI } from "../../apis";
 import styles from "./styles";
 
 export default function ModalCamera({ exibirModal, setStateModal }) {

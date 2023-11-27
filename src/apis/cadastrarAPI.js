@@ -1,14 +1,15 @@
 import config from '../config/config.json'
 
-class cadastrarItemAPI {
+class cadastrarAPI {
     constructor(){
         this.status = null;
+        this.info = "";
         this.isLoading = null;
     }
 
-    cadastrarItemAPI = async(nomeItem, valorVarejo, valorAtacado) => {
+    cadastrarAPI = async(user, email, senha, confirmSenha) => {
         try {
-            const response = await fetch(config.ApiPython + `/cadastrarItem?nomeItem=${nomeItem}&valorVarejo=${valorVarejo}&valorAtacado=${valorAtacado}`, {
+            const response = await fetch(config.ApiPython + `/cadastrar?User=${user}&Email=${email}&Senha=${senha}&ConfirSenha=${confirmSenha}`, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
@@ -18,13 +19,15 @@ class cadastrarItemAPI {
                 res => res.json()
             );
             
-            this.status = response['status']
+            this.status = response['Status'];
+            this.info = response['Info'];
         } catch (error) {
-            console.log(`src/hooks/cadastrarItemAPI: ${error}`);
+            console.log(`src/apis/cadastrarAPI: ${error}`);
         } finally {
             this.isLoading = false;
         }
     }
 }
 
-export default cadastrarItemAPI;
+export default cadastrarAPI;
+

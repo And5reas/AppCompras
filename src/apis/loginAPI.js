@@ -1,16 +1,16 @@
 import config from '../config/config.json'
 
-class getItensAPI {
+class loginAPI {
 
     constructor(){
         this.isLoading = null;
+        this.status = null;
         this.msg = "";
     }
 
-    getItensAPI = async() => {
-        let lista = []
+    loginAPI = async(user, senha) => {
         try {
-            const response = await fetch(`${config.ApiPython}/getItens`, {
+            const response = await fetch(`${config.ApiPython}/login?User=${user}&Senha=${senha}`, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
@@ -19,12 +19,13 @@ class getItensAPI {
             }).then(
                 res => res.json()
             )
-            for (let i = 0; i < response['QuantidadeItens']; i += 1){
-                lista.push(response[`${i}`])
-            }
-            return lista
+            this.status = response['Status'];
+            if (this.status) 
+                this.msg = "Bem vindo"
+            else
+                this.msg = "Login incorreto"
         } catch (error) {
-            console.log(`src/hooks/getItensAPI: ${error}`);
+            console.log(`src/apis/loginAPI: ${error}`);
             this.msg = "Ops ocorreu um erro inesperado :("
         } finally {
             this.isLoading = false;
@@ -32,4 +33,4 @@ class getItensAPI {
     }
 }
 
-export default getItensAPI;
+export default loginAPI;

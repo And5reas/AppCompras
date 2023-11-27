@@ -6,32 +6,23 @@ import {
     ModalCamera,
     Itens
 } from "../../components";
-import { ClassItem } from "../../helpers";
+import listaLocal from "../../../compra.json"
+import { useIsFocused } from "@react-navigation/native";
+
 import styles from "./styles";
 
 export default function HomeScreen() {
     const [modalVisible, setModalVisible] = useState(false);
-    const [listItens, setListItens] = useState();
-
-    const listTest = [{id: 1, nome: 'leite', img: 'https://i.imgur.com/oU77k16.jpg', valorVarejo: 4.35, valorAtacado: 4.10, qtd: 1},
-    {id: 2, nome: 'leite', img: 'https://i.imgur.com/oU77k16.jpg', valorVarejo: 4.35, valorAtacado: 4.10, qtd: 1},
-    {id: 3, nome: 'leite', img: 'https://i.imgur.com/oU77k16.jpg', valorVarejo: 4.35, valorAtacado: 4.10, qtd: 1},
-    {id: 4, nome: 'leite', img: 'https://i.imgur.com/oU77k16.jpg', valorVarejo: 4.35, valorAtacado: 4.10, qtd: 1},
-    {id: 5, nome: 'Refri taubacana 2L Guarana', img: 'https://i.imgur.com/tp0X2NO.jpg', valorVarejo: 3.39, valorAtacado: 3.29, qtd: 1},
-    {id: 6, nome: 'Refri taubacana 2L Guarana', img: 'https://i.imgur.com/tp0X2NO.jpg', valorVarejo: 3.39, valorAtacado: 3.29, qtd: 1},
-    ]
+    const [listItens, setListItens] = useState([]);
+    const isFocused = useIsFocused();
 
     useEffect(() => {
-        let newList = [];
-        listTest.forEach(item => {
-            try{
-                newList.push(new ClassItem(item['id'], item['nome'], item['img'], item['valorVarejo'], item['valorAtacado'], item['qtd']))
-            } catch (error) {
-                console.log(`src/screens/HomeScreen: ${error}`);
+        if (isFocused){
+            if (listaLocal.length > listItens.length){
+                setListItens(listaLocal)
             }
-        });
-        setListItens(newList)
-    }, [])
+        }
+    }, [isFocused])
 
     return(
         <View style={styles.container}>

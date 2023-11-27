@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ImageBackground, View, StatusBar } from "react-native";
 import { images } from "../../constants";
 import { SimpleButton, SimpleInput } from "../../components";
-import { cadastrarAPI } from "../../hooks";
+import { cadastrarAPI } from "../../apis";
 import { AndroidToasts } from "../../helpers";
 import styles from "../Login/styles";
 

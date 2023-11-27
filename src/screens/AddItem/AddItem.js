@@ -4,7 +4,7 @@ import { Header, SimpleInput, SimpleButton, CameraProduto } from "../../componen
 import styles from "./styles";
 import { COLORS } from "../../constants";
 import { useState } from "react";
-import { cadastrarItemAPI, sendImageAPI } from "../../hooks";
+import { cadastrarItemAPI, sendImageAPI } from "../../apis";
 
 export default function AddItem({ navigation }) {
     const [nmProduto, setNmProduto] = useState("");

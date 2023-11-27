@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
+import { useIsFocused } from "@react-navigation/native";
 import { View, FlatList } from "react-native";
 import { Header } from "../../components";
-import { getItensAPI } from "../../hooks";
+import { getItensAPI } from "../../apis";
 import TemplateItem from "./TemplateItem";
 import styles from "./styles";
 
 export default function ItensCadastrados(){
-    const [isLoading, setIsLoading] = useState(false)
     const [data, setData] = useState()
+    const isFocused = useIsFocused()
     const getItens = new getItensAPI()
 
     useEffect(() => {
-        setIsLoading(true);
-        async function fetchData() {
-            const itens = await getItens.getItensAPI()
-            setData(itens);
-            setIsLoading(false);
+        if (isFocused){
+            async function fetchData() {
+                const itens = await getItens.getItensAPI()
+                setData(itens);
+            }
+            fetchData();
         }
-        fetchData();
-    }, [])
+    }, [isFocused])
 
     return (
         <View style={styles.container}>

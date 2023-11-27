@@ -2,14 +2,14 @@ export default class ClassItem{
 
     static valorTotal = 0;
 
-    constructor( id, nome, img, valorVarejo, valorAtacado, qtd ){
+    constructor( id, nome, img, valorVarejo, valorAtacado ){
         ClassItem.valorTotal += valorVarejo
         this.id = id;
         this.nome = nome;
         this.img = img;
         this.valorVarejo = valorVarejo;
         this.valorAtacado = valorAtacado;
-        this.qtd = qtd;
+        this.qtd = 1
         //this.qtdToAtacado = 3;
     }
 

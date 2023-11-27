@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { SimpleButton, SimpleInput } from '../../components'; 
 import { images, icons } from '../../constants';
-import { loginAPI } from '../../hooks';
+import { loginAPI } from '../../apis';
 import { AndroidToasts } from '../../helpers';
 import styles from './styles';
 
