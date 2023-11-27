@@ -5,6 +5,7 @@ import styles from "./styles";
 import { COLORS } from "../../constants";
 import { useState } from "react";
 import { cadastrarItemAPI, sendImageAPI } from "../../apis";
+import { AndroidToasts } from "../../helpers";
 
 export default function AddItem({ navigation }) {
     const [nmProduto, setNmProduto] = useState("");
@@ -16,11 +17,12 @@ export default function AddItem({ navigation }) {
     const [isLoading, setIsLoading] = useState(false);
     const cadastrarItem = new cadastrarItemAPI();
     const sendImage = new sendImageAPI();
+    const toast = new AndroidToasts();
     let msg = "";
 
     const ValidInfo = () => {
         if (nmProduto == "" || vlVarejo == ""){
-            msg =  "Todos os compos devem estár preenchidos"
+            msg =  "Todos os compos devem estar preenchidos"
             return false
         }
         else if (imgUri == ""){
@@ -107,7 +109,7 @@ export default function AddItem({ navigation }) {
                             setIsLoading(false)
                             navigation.navigate("Home")
                         })()
-                    :   console.log('fazer um aviso')
+                    :   toast.simpleToast(msg)
                 }}
             />
         </View>

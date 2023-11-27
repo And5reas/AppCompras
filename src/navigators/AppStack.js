@@ -37,8 +37,8 @@ export default function AppStack() {
                     tabBarIcon: () => (
                         <View style={styles.selectArea}>
                             <Image 
-                                style={styles.itens}
-                                source={icons.tapHome}
+                                style={[styles.itens, {height: 50, width: 45}]}
+                                source={icons.addingItem}
                             />
                         </View>
                     ),
@@ -83,8 +83,8 @@ export default function AppStack() {
                     tabBarIcon: () => (
                         <View style={styles.selectArea}>
                             <Image 
-                                style={[styles.itens, {height: 50, width: 45}]}
-                                source={icons.addingItem}
+                                style={[styles.itens, {height: 40, width: 45}]}
+                                source={icons.addingItemToList}
                             />
                         </View>
                     ),
