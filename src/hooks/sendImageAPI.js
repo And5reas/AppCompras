@@ -26,7 +26,7 @@ class sendImageAPI {
             })
             this.msg = "Feito :)"
         } catch (error) {
-            console.log(error);
+            console.log(`src/hooks/sendImageAPI: ${error}`);
             this.msg = "Ops Ocorreu um erro"
         }
     }

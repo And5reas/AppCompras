@@ -14,7 +14,7 @@ export default function ItensCadastrados(){
         setIsLoading(true);
         async function fetchData() {
             const itens = await getItens.getItensAPI()
-            setData(itens)
+            setData(itens);
             setIsLoading(false);
         }
         fetchData();

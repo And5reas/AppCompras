@@ -23,7 +23,7 @@ export default function AppStack() {
     };
 
     return(
-        <TabNavigator.Navigator>
+        <TabNavigator.Navigator initialRouteName="Home">
             <TabNavigator.Screen 
                 name="getItem"
                 component={ItensCadastrados}

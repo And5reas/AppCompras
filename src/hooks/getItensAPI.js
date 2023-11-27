@@ -22,10 +22,9 @@ class getItensAPI {
             for (let i = 0; i < response['QuantidadeItens']; i += 1){
                 lista.push(response[`${i}`])
             }
-            console.log(lista)
             return lista
         } catch (error) {
-            console.log(error);
+            console.log(`src/hooks/getItensAPI: ${error}`);
             this.msg = "Ops ocorreu um erro inesperado :("
         } finally {
             this.isLoading = false;

@@ -20,7 +20,7 @@ class cadastrarItemAPI {
             
             this.status = response['status']
         } catch (error) {
-            console.log(error);
+            console.log(`src/hooks/cadastrarItemAPI: ${error}`);
         } finally {
             this.isLoading = false;
         }

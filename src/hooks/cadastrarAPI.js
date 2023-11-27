@@ -22,7 +22,7 @@ class cadastrarAPI {
             this.status = response['Status'];
             this.info = response['Info'];
         } catch (error) {
-            console.log(error);
+            console.log(`src/hooks/cadastrarAPI: ${error}`);
         } finally {
             this.isLoading = false;
         }

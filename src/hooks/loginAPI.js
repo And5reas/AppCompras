@@ -25,7 +25,7 @@ class loginAPI {
             else
                 this.msg = "Login incorreto"
         } catch (error) {
-            console.log(error);
+            console.log(`src/hooks/loginAPI: ${error}`);
             this.msg = "Ops ocorreu um erro inesperado :("
         } finally {
             this.isLoading = false;

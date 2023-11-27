@@ -38,8 +38,8 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
                 const pictureResized = await manipulateAsync(picture.uri, [{resize: { width: 1020, height: 920 } }])
                 await sendImage.sendImageAPI(pictureResized.uri); 
                 setIsLoading(false);
-            } catch (e) {
-                console.log(e);
+            } catch (error) {
+                console.log(`src/components/ModalCamera: ${error}`);
             }
         }
     }

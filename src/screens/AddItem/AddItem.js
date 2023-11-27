@@ -107,7 +107,7 @@ export default function AddItem({ navigation }) {
                             setIsLoading(false)
                             navigation.navigate("Home")
                         })()
-                    :   console.log('batat')
+                    :   console.log('fazer um aviso')
                 }}
             />
         </View>

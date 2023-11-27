@@ -26,8 +26,8 @@ export default function HomeScreen() {
         listTest.forEach(item => {
             try{
                 newList.push(new ClassItem(item['id'], item['nome'], item['img'], item['valorVarejo'], item['valorAtacado'], item['qtd']))
-            } catch (e) {
-                console.log(e);
+            } catch (error) {
+                console.log(`src/screens/HomeScreen: ${error}`);
             }
         });
         setListItens(newList)
