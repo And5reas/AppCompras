@@ -13,6 +13,6 @@ export default addItemLista = (item) => {
         msgToasts.simpleToast("Item adicionado com Sucesso");
         listaLocal.push(new ClassItem(item['id'], item['nome'], item['img'], item['valorVarejo'], item['valorAtacado']));
     } else {
-        msgToasts.showToastWithGravity("Item já adicionado");
+        msgToasts.simpleToast("Item já adicionado");
     }
 }

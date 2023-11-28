@@ -6,6 +6,8 @@ import { cadastrarAPI } from "../../apis";
 import { AndroidToasts } from "../../helpers";
 import styles from "../Login/styles";
 
+const API = new cadastrarAPI;
+const androidToasts = new AndroidToasts;
 
 export default function CadastroScreen(props){
     const [user, setUser] = useState("");
@@ -13,8 +15,6 @@ export default function CadastroScreen(props){
     const [senha, setSenha] = useState("");
     const [confirSenha, setConfirSenha] = useState("");
     const [isLoading, setIsLoading] = useState("");
-    const API = new cadastrarAPI;
-    const androidToasts = new AndroidToasts;
 
     const register = async() => {
         setIsLoading(true);

@@ -7,6 +7,10 @@ import { useState } from "react";
 import { cadastrarItemAPI, sendImageAPI } from "../../apis";
 import { AndroidToasts } from "../../helpers";
 
+const cadastrarItem = new cadastrarItemAPI();
+const sendImage = new sendImageAPI();
+const toast = new AndroidToasts();
+
 export default function AddItem({ navigation }) {
     const [nmProduto, setNmProduto] = useState("");
     const [imgUri, setImgUri] = useState(" ");
@@ -15,9 +19,6 @@ export default function AddItem({ navigation }) {
     const [keyBoardShow, setKeyBoardShow] = useState(false);
     const [pictureNotTaken, setPictureNotTaken] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
-    const cadastrarItem = new cadastrarItemAPI();
-    const sendImage = new sendImageAPI();
-    const toast = new AndroidToasts();
     let msg = "";
 
     const ValidInfo = () => {

@@ -1,26 +1,10 @@
-import { ToastAndroid } from "react-native";
+import Toast from "react-native-root-toast";
 
 class AndroidToasts {
 
     simpleToast = (msg) => {
-        ToastAndroid.show(msg, ToastAndroid.SHORT);
+      Toast.show(msg, {duration: 500});
     };
-
-    showToastWithGravity = (msg) => {
-        ToastAndroid.showWithGravity(msg,
-        ToastAndroid.SHORT,
-        ToastAndroid.CENTER,
-        );
-    };
-
-    showToastWithGravityAndOffset = (msg) => {
-        ToastAndroid.showWithGravityAndOffset(msg,
-          ToastAndroid.LONG,
-          ToastAndroid.BOTTOM,
-          25,
-          50,
-        );
-      };
 };
 
 export default AndroidToasts;

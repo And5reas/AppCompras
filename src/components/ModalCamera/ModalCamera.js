@@ -13,6 +13,8 @@ import { icons, COLORS } from "../../constants";
 import { sendImageAPI } from "../../apis";
 import styles from "./styles";
 
+const sendImage = new sendImageAPI();
+
 export default function ModalCamera({ exibirModal, setStateModal }) {
 
     const [hasCameraPermission, setHasCameraPermission] = useState(null);
@@ -20,7 +22,6 @@ export default function ModalCamera({ exibirModal, setStateModal }) {
     const flash = Camera.Constants.FlashMode.off;
     const [isLoading, setIsLoading] = useState(false);
     const cameraRef = useRef(null);
-    const sendImage = new sendImageAPI();
     
     useEffect(() => {
         (async() => {

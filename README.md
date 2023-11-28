@@ -99,5 +99,6 @@ Um APP para ajudar as pessoas a economizar dinheiro no mercado
     npm i react-native-vision-camera
     npm i -g eas-cli
     npm i @react-navigation/bottom-tabs
+    npm i react-native-root-toast
     npx expo install react-native-gesture-handler
     npx expo install expo-image-manipulator

@@ -5,9 +5,10 @@ import { getItensAPI } from "../../apis";
 import TemplateItem from "./TemplateItem";
 import styles from "./styles";
 
+const getItens = new getItensAPI()
+
 export default function ItensCadastrados({ route }){ 
     const [data, setData] = useState()
-    const getItens = new getItensAPI()
 
     useEffect(() => {
         if (route.params == undefined)
