@@ -7,8 +7,6 @@ const msgToasts = new AndroidToasts()
 export default addItemLista = (item) => {
     let cadastrar = true;
     listaLocal.forEach(e => {
-        console.log(e)
-        console.log(item)
         if (e['id'] === item['id']) cadastrar = false;
     })
     if (cadastrar) {

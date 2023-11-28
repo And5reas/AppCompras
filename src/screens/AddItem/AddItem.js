@@ -9,7 +9,7 @@ import { AndroidToasts } from "../../helpers";
 
 export default function AddItem({ navigation }) {
     const [nmProduto, setNmProduto] = useState("");
-    const [imgUri, setImgUri] = useState("a");
+    const [imgUri, setImgUri] = useState(" ");
     const [vlVarejo, setVlVarejo] = useState("");
     const [vlAtacado, setVlAtacado] = useState("");
     const [keyBoardShow, setKeyBoardShow] = useState(false);
@@ -107,7 +107,9 @@ export default function AddItem({ navigation }) {
                             setVlAtacado("");
                             setPictureNotTaken(true);
                             setIsLoading(false)
-                            navigation.navigate("Home")
+                            navigation.navigate('getItem', {
+                                updateList: true,
+                            })
                         })()
                     :   toast.simpleToast(msg)
                 }}
