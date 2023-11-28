@@ -11,7 +11,7 @@ import { useIsFocused } from "@react-navigation/native";
 
 import styles from "./styles";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
     const [listItens, setListItens] = useState([]);
     const isFocused = useIsFocused();
@@ -24,11 +24,15 @@ export default function HomeScreen() {
         }
     }, [isFocused])
 
+    const leaving = () => {
+        navigation.navigate("Login");
+    }
+
     return(
         <View style={styles.container}>
             <Itens listItens={listItens} setListItens={setListItens} />
             <StatusBar barStyle="light-content" />
-            <Header title="AppCompras" valorTotalHide={false} />
+            <Header title="AppCompras" valorTotalHide={false} exit={true} onLeave={() => leaving()} />
             <ModalCamera exibirModal={modalVisible} setStateModal={setModalVisible} />
             <PlusButton onPress={() => setModalVisible(true)} />
         </View>

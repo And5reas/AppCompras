@@ -24,4 +24,11 @@ export default styles = StyleSheet.create({
         fontSize: SIZES.text.xxLarge,
         color: COLORS.VistaBlue,
     },
+    buttonSair: {
+        position: "absolute",
+        backgroundColor: COLORS.TeaRose,
+        right: 20,
+        padding: 10,
+        borderRadius: 10,
+    }
 });

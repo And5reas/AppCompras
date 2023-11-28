@@ -7,7 +7,7 @@ import {
     StatusBar,
     TouchableWithoutFeedback
 } from 'react-native';
-import { SimpleButton, SimpleInput } from '../../components'; 
+import { SimpleButton, SimpleInput, DegubAPIURL } from '../../components'; 
 import { images, icons } from '../../constants';
 import { loginAPI } from '../../apis';
 import { AndroidToasts } from '../../helpers';
@@ -18,6 +18,7 @@ const API = new loginAPI;
 const androidToasts = new AndroidToasts;
 
 export default function LoginScreen(props){
+    const [debugState, setDebugState] = useState(false)
     const [user, setUser] = useState("");
     const [senha, setSenha] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -28,8 +29,11 @@ export default function LoginScreen(props){
         await API.loginAPI(user, senha);
         androidToasts.simpleToast(API.msg);
         setIsLoading(API.isLoading);
-        if (API.status)
+        if (API.status){
             props.navigation.navigate('Main');
+            setUser("");
+            setSenha("");
+        }
     }
 
     return (
@@ -38,12 +42,20 @@ export default function LoginScreen(props){
             style={styles.container}
         >
             <StatusBar backgroundColor="#000" />
+
             <TouchableWithoutFeedback onPress={() => {
                 debugCount += 1;
-                androidToasts.simpleToast(`${debugCount} click to Degub API_URL`)
+                androidToasts.simpleToast(`${debugCount} click to Degub API_URL`);
+                if (debugCount > 5){
+                    debugCount = 0;
+                    setDebugState(true);
+                }
             }}>
                 <Image source={icons.appIcon} style={styles.icon} />
             </TouchableWithoutFeedback>
+
+            <DegubAPIURL visible={debugState} closeDegub={setDebugState} />
+
             <View style={styles.viewCampos}>
                 <View style={styles.rowView}>
                     <SimpleInput 
