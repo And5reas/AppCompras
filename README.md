@@ -1,5 +1,8 @@
 # AppCompras
 Um APP para ajudar as pessoas a economizar dinheiro no mercado
+### Objetivos
+---
+Criar uma forma de usuários cadastrarem compras, mercados e preços para eles terem uma comparação 
 ---
 ### Tecnologias Usadas
 ---
