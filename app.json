@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "AppCompras2",
-    "slug": "AppCompras2",
+    "name": "AppCompras",
+    "slug": "AppCompras",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/expo_imgs/icon.png",
